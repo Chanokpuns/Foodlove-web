@@ -1,0 +1,331 @@
+/******************************************** forall ********************************************/
+body{
+    background-color: antiquewhite;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.colorBar{
+    background-color: rgb(208, 36, 6);
+    width: 100%;
+    height: 50px;
+}
+
+.firstnav{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 40px;
+}
+
+.cartbutton,
+.loginbutton,
+.profilebutton{
+    background-color: #FFD54F;
+    color: rgb(208, 36, 6);
+    padding: 10px 50px;
+    text-decoration: none;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "Akt", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/********************************************* forhomepage ********************************************/
+.logo{
+    margin-left: 10%;
+    margin-top: 6%;
+}
+
+.namethai{
+    font-family: "Mali", cursive;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 40px;
+}
+
+.name{
+    font-size: 150px;
+    color: white;                 /* สีด้านใน */
+    -webkit-text-stroke: 8px #FF494C; 
+
+    font-family: "Changa One", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.all{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-right: 15%;
+    margin-top: 5%;
+}
+
+.image1 img{
+    width: 120%;
+    height: auto;
+}
+
+.contact{
+    margin-left: 10%;
+    margin-top: 10%;
+    font-family: "Mali", cursive;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 20px;
+}
+
+
+
+/* forregister */
+.logoonanother{
+    margin-left: 5%;
+    margin-top: 1%;
+}
+
+.nameforanother{
+    font-size: 90px;
+    color: white;                 /* สีด้านใน */
+    -webkit-text-stroke: 5px #FF494C; 
+
+    font-family: "Changa One", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.topall{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/****************************************** LOGIN FORM ******************************************/
+.form{
+    background-color: rgb(208, 36, 6);
+    width: 50%;
+    min-width: 600px;
+    margin: 50px auto;
+    padding: 40px 50px;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginname{
+    margin: 0 0 20px 0;
+    font-size: 90px;
+    color: #FF494C;
+    -webkit-text-stroke: 5px white;
+    font-family: "Changa One", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+
+.form form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+
+.inputrow{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.inputrow label{
+    width: 140px;
+    color: #fcfbfb;
+    font-family: "Akt", sans-serif;
+    font-size: 25px;
+}
+
+.inputrow input{
+    flex: 1;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    font-size: 25px;
+    font-family: "Akt", sans-serif;
+    box-sizing: border-box;
+}
+
+.topall2{
+    width: 100%;
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.register1{
+    background-color: #FFD54F;
+    color: rgb(208, 36, 6);
+    border: none;
+    border-radius: 50px;
+    padding: 12px 40px;
+    cursor: pointer;
+    font-family: "Akt", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.register1:hover{
+    transform: scale(1.05);
+}
+
+.submit1{
+    background-color: #FFD54F;
+    color: rgb(208, 36, 6);
+    border: none;
+    border-radius: 50px;
+    padding: 12px 40px;
+    cursor: pointer;
+    font-family: "Akt", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.submit1:hover{
+    transform: scale(1.05);
+}
+
+/* registerform */
+.topall3{
+    width: 100%;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/****************************************** menu-button ******************************************/
+.all1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 15%;
+    margin-top: 5%;
+}
+
+.menu{
+    background-color: rgb(208, 36, 6);
+    width: 30%;
+    margin: 0 10px;
+    padding: 40px 50px;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-button{
+    background-color: rgb(255, 248, 239);
+    margin-top: 20px;
+    width: 40%;
+    color: #FF494C;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 50px;
+    cursor: pointer;
+    font-family: "Akt", sans-serif;
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    transition: 0.1s;
+    text-decoration: none;
+}
+
+.menu-button:hover{
+    transform: scale(1.05);
+     background-color: rgb(255, 234, 207);
+}
+
+
+.name-menu{
+    font-size: 90px;
+    color: white;                 /* สีด้านใน */
+    -webkit-text-stroke: 5px #FFD54F; 
+    font-family: "Changa One", sans-serif;
+    font-style: italic;
+}
+
+
+/****************************************** pizza-page ******************************************/
+.nameforanother1{
+    font-size: 50px;
+    color: #FF494C;                 /* สีด้านใน */
+    font-family: "Changa One", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.pizza-card img{
+    width: 100%;
+    display: block;
+}
+
+.pizza-card{
+    width: 25%;
+    background-color: #FF494C;
+    font-family: "Changa One", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 30px;
+    overflow: hidden;
+}
+
+.show-menu{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+}
+
+
+
+/******************************************* burger-page ******************************************/
+.burger-card img{
+    width: 100%;
+    display: block;
+}
+
+.burger-card{
+    width: 25%;
+    background-color: #FF494C;
+    font-family: "Changa One", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 30px;
+    overflow: hidden;
+}
