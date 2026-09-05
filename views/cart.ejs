@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cart-Food'ove</title>
+
+    <link rel="stylesheet" href="/css/cart.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="colorBar"></div>
+
+    <!-- NAVIGATION -->
+    <div class="firstnav">
+        <a href="/" class="cartbutton">Home</a>
+        <a href="/pizza" class="cartbutton">Menu</a>
+    </div>
+
+
+    <!-- CART -->
+    <main class="cart-container">
+        <h1 class="cart-title">Your Cart</h1>
+
+        <div class="cart-box">
+            <!-- HEADER -->
+            <div class="cart-header">
+                <div>Product</div>
+                <div>Quantity</div>
+                <div>Total</div>
+                <div>Action</div>
+            </div>
+
+            <!-- CART ITEMS -->
+            <div id="cart-items">
+                <!-- JavaScript จะใส่สินค้าเข้ามาตรงนี้ -->
+            </div>
+
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cart-total-price">
+                    ฿ 0
+                </span>
+            </div>
+        </div>
+
+        <p id="empty-cart">
+            Your cart is empty.
+        </p>
+
+        <p>Thank you</p>
+    </main>
+
+
+   <script>
+    const cartItems = document.getElementById("cart-items");
+    const totalPrice = document.getElementById("cart-total-price");
+    const emptyCart = document.getElementById("empty-cart");
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    function displayCart() {
+        cartItems.innerHTML = "";
+        let grandTotal = 0;
+
+        if (cart.length === 0) {
+            emptyCart.style.display = "block";
+            totalPrice.textContent = "฿ 0";
+            return;
+        }
+
+        emptyCart.style.display = "none";
+
+        cart.forEach((item, index) => {
+            const itemTotal = item.price * item.quantity;
+            grandTotal += itemTotal;
+
+            const row = document.createElement("div");
+            row.className = "cart-item";
+
+            row.innerHTML = `
+                <div class="product-name">
+                    ${item.name}
+                </div>
+
+                <div class="product-quantity">
+                    ${item.quantity}
+                </div>
+
+                <div class="product-total">
+                    ฿ ${itemTotal.toLocaleString()}
+                </div>
+
+                <div class="product-action">
+                    <button class="remove-button" onclick="removeItem(${index})">
+                        Remove
+                    </button>
+                </div>
+            `;
+
+            cartItems.appendChild(row);
+        });
+
+        totalPrice.textContent =
+            "฿ " + grandTotal.toLocaleString();
+    }
+
+    function removeItem(index) {
+        cart.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        displayCart();
+    }
+    displayCart();
+</script>
+
+</body>
+</html>

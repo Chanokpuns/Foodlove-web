@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizza</title>
 
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/css/pizza.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -21,71 +22,110 @@
     <link href="https://fonts.googleapis.com/css2?family=Akt:wght@100..900&display=swap" rel="stylesheet">
 </head>
 
+
 <body>
+
     <div class="colorBar"></div>
+
     <div class="topall">
         <div class="logoonanother">
             <div class="nameforanother">Food'ove</div>
-            <div class="nameforanother1">Pizza</div>
         </div>
 
         <div class="firstnav">
+            <a href="/" class="cartbutton">Home</a>
             <a href="/cart" class="cartbutton">Cart</a>
-            <a href="/login" class="loginbutton">Login</a>
-            <a href="/profile" class="profilebutton">Profile</a>
+             <a href="/#menu" class="cartbutton">Menu</a>
         </div>
     </div>
-    <br><br>
+
+    <div class="name-menu">
+        <h1>Pizza-Menu</h1>
+    </div>
 
     <div class="show-menu">
-        <a href="/pizza01" class="pizza-card">
-        <div>
-            <img src="/pepperoni.jpg">
-            <p>Pepperoni pizza</p>
-            <p>290</p>
-        </div>
-        </a>
+        <% pizzas.forEach(pizza=> { %>
+            <div class="pizza-card">
+                <img src="<%= pizza.image %>">
+                <p>
+                    <%= pizza.name %>
+                </p>
+                <p>฿ <%= pizza.price %>
+                </p>
+                <div class="quantity">
+                    <button type="button" class="minus">−</button>
 
-        <a href="/pizza01" class="pizza-card">
-        <div>
-            <img src="/hawaiian.jpg">
-            <p>Hawaiian pizza</p>
-            <p>290</p>
-        </div>
-        </a>
+                    <span class="quantity-number">0</span>
 
-        <a href="/pizza01" class="pizza-card">
-        <div>
-            <img src="/veggie.jpg">
-            <p>Vegetarian pizza</p>
-            <p>240</p>
-        </div>
-        </a>
-
-        <a href="/pizza01" class="pizza-card">
-        <div>
-            <img src="/Margherita.jpg">
-            <p>Margherita pizza</p>
-            <p>300</p>
-        </div>
-        </a>
-        
-        <a href="/pizza01" class="pizza-card">
-        <div>
-            <img src="/smokesalmon.jpg">
-            <p>Smoked Salmon pizza</p>
-            <p>290</p>
-        </div>
-        </a>
-
-        <a href="/pizza01" class="pizza-card">
-        <div>
-            <img src="/cheese.jpg">
-            <p>Cheese pizza</p>
-            <p>290</p>
-        </div>
-        </a>
-
+                    <button type="button" class="plus">+</button>
+                </div>
+                <button class="add-button add-cart" data-id="<%= pizza.id %>" data-name="<%= pizza.name %>"
+                    data-price="<%= pizza.price %>">
+                    Add to Cart
+                </button>
+            </div>
+            <% }) %>
     </div>
+
+
+    <!-- JavaScript สำหรับ + - -->
+   <script>
+    document.querySelectorAll(".pizza-card").forEach(card => {
+
+        let quantity = 0;
+
+        const minus = card.querySelector(".minus");
+        const plus = card.querySelector(".plus");
+        const quantityNumber = card.querySelector(".quantity-number");
+        const addCart = card.querySelector(".add-cart");
+
+
+        // เพิ่มจำนวน
+        plus.addEventListener("click", () => {
+            quantity++;
+            quantityNumber.textContent = quantity;
+        });
+
+        // ลดจำนวน
+        minus.addEventListener("click", () => {
+            if (quantity > 0) {
+                quantity--;
+                quantityNumber.textContent = quantity;
+            }
+        });
+
+        // Add to Cart
+        addCart.addEventListener("click", () => {
+            if (quantity === 0) {
+                alert("Please select quantity.");
+                return;
+            }
+
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const id = addCart.dataset.id;
+            const name = addCart.dataset.name;
+            const price = Number(addCart.dataset.price);
+
+            // เช็คว่าสินค้านี้มีอยู่ใน Cart ยัง
+            const existingItem = cart.find(item => item.id === id);
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({
+                    id: id,
+                    name: name,
+                    price: price,
+                    quantity: quantity
+                });
+            }
+            // บันทึก Cart
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Added to cart!");
+            // reset จำนวน
+            quantity = 0;
+            quantityNumber.textContent = 0;
+        });
+    });
+</script>
 </body>
 </html>

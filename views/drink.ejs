@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamburger</title>
+    <title>Drink</title>
 
-    <link rel="stylesheet" href="/css/hamburger.css">
+    <link rel="stylesheet" href="/css/drink.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -40,28 +40,27 @@
     </div>
 
     <div class="name-menu">
-        <h1>Hamburger-Menu</h1>
+        <h1>Drink-Menu</h1>
     </div>
 
+
     <div class="show-menu">
-        <% hamburger.forEach(hamburger=> { %>
-            <div class="hamburger-card">
-                <img src="<%= hamburger.image %>">
+        <% drinks.forEach(drink=> { %>
+            <div class="drink-card">
+                <img src="<%= drink.image %>">
                 <br>
                 <p>
-                    <%= hamburger.name %>
+                    <%= drink.name %>
                 </p>
-                <p>฿ <%= hamburger.price %>
+                <p>฿ <%= drink.price %>
                 </p>
                 <div class="quantity">
                     <button type="button" class="minus">−</button>
-
                     <span class="quantity-number">0</span>
-
                     <button type="button" class="plus">+</button>
                 </div>
-                <button class="add-button add-cart" data-id="<%= hamburger.id %>" data-name="<%= hamburger.name %>"
-                    data-price="<%= hamburger.price %>">
+                <button class="add-button add-cart" data-id="<%= drink.id %>" data-name="<%= drink.name %>"
+                    data-price="<%= drink.price %>">
                     Add to Cart
                 </button>
             </div>
@@ -71,8 +70,7 @@
 
     <!-- JavaScript สำหรับ + - -->
     <script>
-    document.querySelectorAll(".hamburger-card").forEach(card => {
-
+    document.querySelectorAll(".drink-card").forEach(card => {
         let quantity = 0;
 
         const minus = card.querySelector(".minus");
@@ -80,13 +78,11 @@
         const quantityNumber = card.querySelector(".quantity-number");
         const addCart = card.querySelector(".add-cart");
 
-
         // เพิ่มจำนวน
         plus.addEventListener("click", () => {
             quantity++;
             quantityNumber.textContent = quantity;
         });
-
         // ลดจำนวน
         minus.addEventListener("click", () => {
             if (quantity > 0) {
@@ -94,7 +90,6 @@
                 quantityNumber.textContent = quantity;
             }
         });
-
         // Add to Cart
         addCart.addEventListener("click", () => {
             if (quantity === 0) {
@@ -107,9 +102,8 @@
             const name = addCart.dataset.name;
             const price = Number(addCart.dataset.price);
 
-            // เช็คว่าสินค้านี้มีอยู่ใน Cart แล้วหรือยัง
+            // เช็คว่าสินค้านี้มีอยู่ใน Cart ยัง
             const existingItem = cart.find(item => item.id === id);
-
 
             if (existingItem) {
                 existingItem.quantity += quantity;
@@ -121,14 +115,17 @@
                     quantity: quantity
                 });
             }
+
             // บันทึก Cart
             localStorage.setItem("cart", JSON.stringify(cart));
             alert("Added to cart!");
+
             // reset จำนวน
             quantity = 0;
             quantityNumber.textContent = 0;
-            });
         });
+    });
     </script>
 </body>
+
 </html>

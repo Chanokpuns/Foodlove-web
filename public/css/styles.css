@@ -1,0 +1,289 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: antiquewhite;
+    font-family: "Changa One", sans-serif;
+}
+
+.colorBar {
+    width: 100%;
+    height: 50px;
+    background-color: rgb(208, 36, 6);
+}
+
+.firstnav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px 40px;
+}
+
+.cartbutton,
+.loginbutton,
+.profilebutton {
+    background-color: #FFD54F;
+    color: rgb(208, 36, 6);
+    padding: 10px 50px;
+    text-decoration: none;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "Changa One", sans-serif;
+    font-size: 25px;
+    font-weight: 100;
+    font-style: normal;
+
+    transition: 0.2s;
+}
+
+.cartbutton:hover,
+.loginbutton:hover,
+.profilebutton:hover {
+    background-color: #ffca28;
+    transform: translateY(-2px);
+}
+
+
+.hero-section {
+    min-height: 100vh;
+
+    background-color: antiquewhite;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.all {
+    flex: 1;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 60px 10% 100px;
+}
+
+
+/* ฝั่งชื่อ */
+
+.logo {
+    margin: 0;
+}
+
+.namethai {
+    font-family: "Mali", cursive;
+
+    font-weight: 400;
+    font-style: normal;
+
+    font-size: 40px;
+
+    margin-bottom: 10px;
+}
+
+.name {
+    font-size: 150px;
+    color: white;
+    -webkit-text-stroke: 8px #FF494C;
+    font-family: "Changa One", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 0.9;
+}
+
+
+/* ฝั่งรูป */
+.image1 {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image1 img {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    display: block;
+}
+
+.menu-section {
+    min-height: 100vh;
+    background-color: #FFF1DD;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+}
+
+.menu-button-1{
+    width: 80%;
+    background-color: rgb(255, 248, 239);
+    color: #1a1717;
+    padding: 0px 80px;
+    margin-top: 15px;
+    border: 3px solid #FF494C;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    font-family:  sans-serif;
+    font-size: 25px;
+    transition: 1.6;
+}
+
+/*****************MENU BOX**********************/
+.menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+}
+
+.section-title {
+    margin: 0 0 50px;
+    font-size: 80px;
+    color: #ffd549;
+    font-family: "Changa One", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    text-align: center;
+}
+
+/* ระยะห่างระหว่าง About กับ Menu */
+.menu-title {
+    margin-top: 120px;
+    margin-bottom: 50px;
+}
+
+
+.menu-button {
+    width: 100%;
+    background-color: rgb(255, 248, 239);
+    color: #FF494C;
+    padding: 20px 80px;
+    margin-top: 15px;
+    border: 3px solid #FF494C;
+    border-radius: 50px;
+    text-decoration: none;
+    text-align: center;
+    font-family: "Changa One", sans-serif;
+    font-size: 30px;
+    font-weight: 100;
+    transition: 0.2s;
+}
+
+.menu-button:hover {
+    transform: translateY(-4px) scale(1.03);
+    background-color: rgb(249, 224, 191);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+.contact-section {
+    min-height: 50px;
+    background-color: rgb(208, 36, 6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.contact {
+    color: white;
+    font-family: "Mali", cursive;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.contact p {
+    margin: 10px 0;
+}
+
+
+
+                
+/********************RESPONSIVE************************/
+/* Tablet */
+@media (max-width: 1000px) {
+    .all {
+        padding: 50px 6%;
+    }
+    .name {
+        font-size: 100px;
+    }
+    .namethai {
+        font-size: 30px;
+    }
+    .image1 {
+        width: 40%;
+    }
+}
+
+
+/* Mobile */
+@media (max-width: 700px) {
+    .firstnav {
+        justify-content: center;
+        padding: 15px;
+        gap: 8px;
+    }
+    .cartbutton {
+        padding: 8px 20px;
+        font-size: 16px;
+    }
+    .all {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 60px 20px;
+    }
+    .logo {
+        margin-bottom: 50px;
+    }
+    .namethai {
+        font-size: 25px;
+    }
+    .name {
+        font-size: 75px;
+        -webkit-text-stroke: 4px #FF494C;
+    }
+    .image1 {
+        width: 80%;
+    }
+    .section-title {
+        font-size: 60px;
+    }
+    .menu {
+        width: 90%;
+        padding: 35px 20px;
+    }
+    .name-menu {
+        font-size: 60px;
+        -webkit-text-stroke: 3px #FFD54F;
+    }
+    .menu-button {
+        width: 90%;
+        font-size: 18px;
+        padding: 15px;
+    }
+    .contact-section {
+        min-height: 250px;
+    }
+}
