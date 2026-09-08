@@ -10,14 +10,6 @@ app.get("/", (req, res) => {
     res.render("home");
 });
 
-app.get("/menu", (req, res) => {
-    res.render("menu");
-});
-
-app.get("/submit", (req, res) => {
-    res.render("menu");
-});
-
 app.get("/pizza", (req, res) => {
     res.render("pizza", { pizzas });
 });
