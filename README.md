@@ -1,4 +1,4 @@
-# Foodlove 🍔
+# Foodlove
 
 A food ordering web application developed as a university project.
 
